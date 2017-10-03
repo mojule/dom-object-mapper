@@ -1,7 +1,7 @@
 {
   "name": "@mojule/dom-object-mapper",
   "version": "0.1.0",
-  "description": "Maps values to DOM nodes",
+  "description": "Maps values to DOM nodes and back again",
   "main": "index.js",
   "scripts": {
     "test": "mocha",
