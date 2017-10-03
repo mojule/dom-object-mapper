@@ -2,7 +2,7 @@
 
 const FromDom = require( './src/from-dom' )
 const ToDom = require( './src/to-dom' )
-const defaultOptions = require( './src/options' )
+const defaultOptions = require( './src/default-options' )
 
 const Mapper = options => {
   options = Object.assign( {}, defaultOptions, options )

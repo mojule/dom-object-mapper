@@ -12,7 +12,7 @@ const customTypes = require( './fixtures/custom-types' )
 
 const { stringify, parse } = domUtils
 
-const mapper = Mapper({ document })
+const mapper = Mapper( { document } )
 
 const { toDom, fromDom } = mapper
 
@@ -39,6 +39,15 @@ describe( 'dom-object-mapper', () => {
         assert.deepEqual( value, rounded )
       })
     })
+  })
+
+  it( 'throws on circular references', () => {
+    const a = {}
+    const b = { a }
+
+    a.b = b
+
+    assert.throws( () => toDom( a ) )
   })
 
   describe( 'dom to value', () => {

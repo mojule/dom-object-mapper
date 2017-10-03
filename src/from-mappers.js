@@ -1,13 +1,9 @@
 'use strict'
 
 const is = require( '@mojule/is' )
+const utils = require( './utils' )
 
-const getTextValue = el => {
-  if( el.firstChild && el.firstChild.nodeType === 3 )
-    return el.firstChild.nodeValue
-
-  return ''
-}
+const { getTextValue } = utils
 
 const mappers = {
   string: el => getTextValue( el ),

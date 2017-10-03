@@ -3,6 +3,9 @@
 const Is = require( '@mojule/is' )
 const from = require( '../../src/from-mappers' )
 const to = require( '../../src/to-mappers' )
+const utils = require( '../../src/utils' )
+
+const { primitive, getTextValue } = utils
 
 const predicates = {
   date: value => value instanceof Date,
@@ -10,22 +13,6 @@ const predicates = {
 }
 
 const is = Is( predicates )
-
-const primitive = ( type, value, document ) => {
-  const el = document.createElement( type )
-  const text = document.createTextNode( value )
-
-  el.appendChild( text )
-
-  return el
-}
-
-const getTextValue = el => {
-  if( el.firstChild && el.firstChild.nodeType === 3 )
-    return el.firstChild.nodeValue
-
-  return ''
-}
 
 to.date = ( value, document ) => primitive( 'date', value.toJSON(), document )
 from.date = el => new Date( getTextValue( el ) )

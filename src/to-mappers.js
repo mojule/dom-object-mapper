@@ -1,13 +1,8 @@
 'use strict'
 
-const primitive = ( type, value, document ) => {
-  const el = document.createElement( type )
-  const text = document.createTextNode( value )
+const utils = require( './utils' )
 
-  el.appendChild( text )
-
-  return el
-}
+const { primitive } = utils
 
 const mappers = {
   string: ( value, document ) => primitive( 'string', value, document ),
