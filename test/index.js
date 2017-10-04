@@ -8,6 +8,7 @@ const document = require( './fixtures/document' )
 const valueToDomFixtures = require( './fixtures/value-to-dom' )
 const domToValueFixtures = require( './fixtures/dom-to-value' )
 const namespacedMappers = require( './fixtures/namespaced-mappers' )
+const standardElementMappers = require( './fixtures/standard-element-mappers' )
 const customTypes = require( './fixtures/custom-types' )
 
 const { stringify, parse } = domUtils
@@ -70,6 +71,24 @@ describe( 'dom-object-mapper', () => {
     describe( 'custom mappers', () => {
       describe( 'namespaced elements', () => {
         const mapper = Mapper({ document, mappers: namespacedMappers })
+
+        const { toDom, fromDom } = mapper
+        const { values, expects } = valueToDomFixtures
+
+        Object.keys( values ).forEach( name => {
+          const value = values[ name ]
+
+          it( `${ name } fixture round trips to original value`, () => {
+            const dom = toDom( value )
+            const rounded = fromDom( dom )
+
+            assert.deepEqual( value, rounded )
+          })
+        })
+      })
+
+      describe( 'standard DOM elements', () => {
+        const mapper = Mapper({ document, mappers: standardElementMappers })
 
         const { toDom, fromDom } = mapper
         const { values, expects } = valueToDomFixtures

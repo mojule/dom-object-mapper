@@ -50,7 +50,9 @@ of tooling and built in functionality - it's a simple and lazy solution
 ## notes on mapping to the DOM
 
 By default it only works with JSON data types, but see the tests for examples of
-using custom types, as well as using namespaced custom element names
+using custom types. There are also examples using namespaced custom element
+names (eg `<m-string>` instead of `<string>`) or using standard DOM elements
+like `<ol>` to represent an array etc.
 
 Will currently crash and burn on circular references
 
@@ -82,3 +84,9 @@ The options argument to `Mapper` must be at least `{ document }`. Other options
 you can pass are `{ mappers: { to, from } }` and `{ is }` - see the tests,
 fixtures etc for examples of using these options - a PR for documentation on
 these would be very welcome.
+
+## examples
+
+In the `/examples` folder there is an example of using custom mappers to map
+values to and from form input elements in the browser - run `npm run build` to
+regenerate the browser javascript after making any changes

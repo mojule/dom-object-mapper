@@ -1,6 +1,6 @@
 {
   "name": "@mojule/dom-object-mapper",
-  "version": "0.1.3",
+  "version": "0.1.5",
   "description": "Maps values to DOM nodes and back again",
   "main": "index.js",
   "directories": {
@@ -11,13 +11,15 @@
   },
   "devDependencies": {
     "@mojule/dom-utils": "^0.1.3",
+    "browserify": "^14.4.0",
     "istanbul": "^0.4.5",
     "jsdom": "^11.3.0",
     "mocha": "^3.5.3"
   },
   "scripts": {
     "test": "mocha",
-    "coverage": "istanbul cover node_modules/mocha/bin/_mocha"
+    "coverage": "istanbul cover node_modules/mocha/bin/_mocha",
+    "build": "browserify ./examples/form.js -o ./examples/browser/form.js"
   },
   "repository": {
     "type": "git",

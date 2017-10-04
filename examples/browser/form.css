@@ -1,0 +1,30 @@
+html {
+  font-family: sans-serif;
+}
+
+main {
+  display: flex;
+}
+
+form, pre {
+  flex: 1;
+}
+
+pre {
+  border: 1px solid #ccc;
+  padding: 1rem;
+}
+
+[data-type="object"] {
+  list-style: none;
+  border: 1px solid #ccc;
+  padding: 1rem;
+}
+
+li {
+  margin-bottom: 1rem;
+}
+
+label span {
+  display: block;
+}
