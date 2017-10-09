@@ -1,3 +1,7 @@
+# DEPRECATED
+
+Use [dom-mapper](https://github.com/mojule/dom-mapper)
+
 # dom-object-mapper
 
 Maps values to DOM nodes and back again
